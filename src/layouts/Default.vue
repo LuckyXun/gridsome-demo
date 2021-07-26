@@ -3,25 +3,13 @@
     <header class="header sticky">
       <div class="container">
         <div class="left">
-          <g-link
-            to="/"
-            class="home-link active"
-          >
-            <g-image
-              src="../assets/img/logo.svg"
-              class="logo"
-            />
+          <g-link to="/" class="home-link active">
+            <g-image src="../assets/img/logo.svg" class="logo" />
           </g-link>
         </div>
         <nav class="nav right">
-          <g-link
-            to="/journal"
-            class="nav__link"
-          >Journal</g-link>
-          <g-link
-            to="/contact"
-            class="nav__link"
-          >Say Hi!</g-link>
+          <g-link to="/journal" class="nav__link">Journal</g-link>
+          <g-link to="/contact" class="nav__link">Say Hi!</g-link>
         </nav>
       </div>
     </header>
@@ -33,19 +21,33 @@
 </template>
 
 <static-query>
-query {
-  metadata {
-    siteName
-  }
+query{
+  general:allStrapiGeneral{
+    edges{
+        node{
+        id
+        title
+        subtitle
+        description
+        owner
+        }
+      }
+         
+    }
 }
+
 </static-query>
 
 <script>
 export default {
-  
-}
+  name: "Layout",
+  computed: {
+    general() {
+      return this.$static.general.edges[0].node;
+    },
+  },
+};
 </script>
-
 
 <style lang="css">
 * {
@@ -57,7 +59,6 @@ body {
     "Helvetica Neue", Arial, sans-serif;
   margin: 0;
   padding: 0;
-  line-height: 1.5;
   font-size: 16px;
   --color-base: #fff;
   --color-base-1: #f3f3f3;
@@ -72,7 +73,9 @@ body {
   color: var(--color-contrast);
   transition: background 0.5s ease;
 }
-
+a {
+  color: inherit;
+}
 .sticky-header {
   padding: 6rem 0 0;
 }
@@ -92,6 +95,23 @@ body {
   align-items: center;
   justify-content: space-between;
   height: 100%;
+}
+.latest-journals-heading {
+  margin-top: 6rem;
+  margin-bottom: 1rem;
+  font-size: 0.6rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.latest-journals {
+  max-width: 100%;
+  margin: 0 2rem;
+  border: 1px solid var(--color-base-1);
+}
+.latest-journals > .container {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .nav > * {
