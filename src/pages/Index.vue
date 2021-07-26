@@ -12,7 +12,7 @@
           <g-link to="/" class="project-link"
             ><g-image
               :alt="image.name"
-              :src="GRIDSOME_API_URL + image.image.url"
+              :src="IMAGE_API_PREFIX + image.image.url"
               width="2560"
               class="thumbnail g-image g-image--lazy g-image--loaded"
             />
