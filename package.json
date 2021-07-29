@@ -4,7 +4,7 @@
   "scripts": {
     "develop": "gridsome develop",
     "explore": "gridsome explore",
-    "build": "cross-env NODE_ENV=production gridsome build"
+    "build": "gridsome build"
   },
   "dependencies": {
     "@gridsome/source-filesystem": "^0.6.2",
