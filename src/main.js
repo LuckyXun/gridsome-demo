@@ -1,7 +1,7 @@
 /*
  * @Author: XunL
  * @Date: 2021-07-26 23:29:44
- * @LastEditTime: 2021-07-27 03:04:45
+ * @LastEditTime: 2021-07-29 22:05:36
  * @Description: file content
  */
 // This is the main.js file. Import global CSS and scripts here.
@@ -15,7 +15,7 @@ export default function (Vue, { router, head, isClient }) {
       data(){
         return {
           GRIDSOME_API_URL:process.env.GRIDSOME_API_URL,
-          IMAGE_API_PREFIX:process.env.IMAGE_API_PREFIX
+          IMAGE_API_PREFIX:process.env.IMAGE_API_PREFIX||""
         }
       }
     }
